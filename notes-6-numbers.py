@@ -6,6 +6,9 @@
 # data to fimd the most popular
 # bubble tea place around us
 # version 1
+from asyncio import set_event_loop_policy
+
+
 def vote_listed_choices():
     """display all voting choices
     users vote for their choice
@@ -22,6 +25,7 @@ def vote_listed_choices():
     chatime = 0
     bubble_waffle = 0
     gong_cha = 0
+    spoiled_votes = 0
 
     # ask the user for their choice
     vote = input("your vote: ").lower().strip(",.?! ")
@@ -38,10 +42,37 @@ def vote_listed_choices():
         coco = coco + 1
     elif vote == "b":
         chatime += 1
+    elif vote == "c":
+        bubble_waffle += 1
+    elif vote == "d":
+        gong_cha += 1
+    else:
+        spoiled_votes += 1
 
     # tally
     # gvie the raw score
+    # show the scores of coco...... etc
+    print(f"CoCo votes: {coco}")
+    print(f"Chatime votes: {chatime}")
+    print(f"BUBBLE WAFFEL votes: {bubble_waffle}")
+    print(f"Gong Cha votes: {gong_cha}")
+    print(f"Spoiled votes: {spoiled_votes}")
     # give score as percentage
+
+    coco_percentage = coco / (coco + chatime + bubble_waffle + gong_cha + spoiled_votes)
+    print(f"CoCo Percentage: {coco_percentage * 100}%")
+    chatime_percentage = chatime / (
+        coco + chatime + bubble_waffle + gong_cha + spoiled_votes
+    )
+    print(f"Chatime Percentage: {chatime_percentage * 100}%")
+    bubble_waffle_percentage = bubble_waffle / (
+        coco + chatime + bubble_waffle + gong_cha + spoiled_votes
+    )
+    print(f"CoCo Percentage: {bubble_waffle_percentage * 100}%")
+    gong_cha_percentage = gong_cha / (
+        coco + chatime + bubble_waffle + gong_cha + spoiled_votes
+    )
+    print(f"CoCo Percentage: {gong_cha_percentage * 100}%")
 
 
 #
