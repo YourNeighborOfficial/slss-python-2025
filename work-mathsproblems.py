@@ -25,5 +25,4 @@ ratings = []
 for i in range(5):
     rating = float(input(f"please enter a rating from 1-10: "))
     ratings.append(rating)
-
-print("All ratings:", ratings)
+0print("All ratings:", ratings)
